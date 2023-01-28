@@ -3,47 +3,47 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println("Здравствуйте!");
+        System.out.println("Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ!");
         startProgram();
     }
 
     static void startProgram() {
-        System.out.println("Введите номер программы (1-3), либо введите \"Q\" для выхода.");
+        System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСЂРѕРіСЂР°РјРјС‹ (1-3), Р»РёР±Рѕ РІРІРµРґРёС‚Рµ \"Q\" РґР»СЏ РІС‹С…РѕРґР°.");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Программа № ");
+        System.out.print("РџСЂРѕРіСЂР°РјРјР° в„– ");
         String program = scanner.nextLine();
         if (program.equalsIgnoreCase("q")) {
-            System.out.println("До свидания!");
+            System.out.println("Р”Рѕ СЃРІРёРґР°РЅРёСЏ!");
         } else if (program.chars().allMatch(Character::isDigit)) {
             switch (program) {
                 case "1" -> ex0();
                 case "2" -> ex1();
                 case "3" -> ex2();
                 default -> {
-                    System.out.println("Введен некорректный номер, пожалуйста, попробуйте еще раз.");
+                    System.out.println("Р’РІРµРґРµРЅ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.");
                     startProgram();
                 }
             }
         } else {
-            System.out.println("Ввод некорректен, пожалуйста, попробуйте еще раз.");
+            System.out.println("Р’РІРѕРґ РЅРµРєРѕСЂСЂРµРєС‚РµРЅ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.");
             startProgram();
         }
     }
 
-    // Задача 1. Пусть дан произвольный список целых чисел, удалить из него четные числа
+    // Р—Р°РґР°С‡Р° 1. РџСѓСЃС‚СЊ РґР°РЅ РїСЂРѕРёР·РІРѕР»СЊРЅС‹Р№ СЃРїРёСЃРѕРє С†РµР»С‹С… С‡РёСЃРµР», СѓРґР°Р»РёС‚СЊ РёР· РЅРµРіРѕ С‡РµС‚РЅС‹Рµ С‡РёСЃР»Р°
     static void ex0() {
         ArrayList<Integer> list = getRandomArray(10);
-        System.out.println("Изначальный список = " + list);
+        System.out.println("РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє = " + list);
         list.removeIf(number -> number % 2 == 0);
-        System.out.println("Итоговый список = " + list);
+        System.out.println("РС‚РѕРіРѕРІС‹Р№ СЃРїРёСЃРѕРє = " + list);
         startProgram();
     }
 
-    // Задача 2. Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее арифметическое из
-    // этого списка. Collections.max()
+    // Р—Р°РґР°С‡Р° 2. Р—Р°РґР°РЅ С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє ArrayList. РќР°Р№С‚Рё РјРёРЅРёРјР°Р»СЊРЅРѕРµ, РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Рё СЃСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РёР·
+    // СЌС‚РѕРіРѕ СЃРїРёСЃРєР°. Collections.max()
     static void ex1() {
         ArrayList<Integer> list = getRandomArray(5);
-        System.out.println("Изначальный список = " + list);
+        System.out.println("РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє = " + list);
         int max = Collections.max(list);
         int min = Collections.min(list);
         int average = 0;
@@ -51,23 +51,23 @@ public class Program {
             average += list.get(i);
         }
         average = average / list.size();
-        System.out.println("Максимальное значение = " + max);
-        System.out.println("Минимальное значение = " + min);
-        System.out.println("Среднее арифметическое всех элементов = " + average);
+        System.out.println("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ = " + max);
+        System.out.println("РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ = " + min);
+        System.out.println("РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ = " + average);
         startProgram();
     }
 
-    // Задача 3. *Реализовать алгоритм сортировки слиянием
+    // Р—Р°РґР°С‡Р° 3. *Р РµР°Р»РёР·РѕРІР°С‚СЊ Р°Р»РіРѕСЂРёС‚Рј СЃРѕСЂС‚РёСЂРѕРІРєРё СЃР»РёСЏРЅРёРµРј
     static void ex2() {
         ArrayList<Integer> list = getRandomArray(10);
-        System.out.println("Изначальный список = " + list);
+        System.out.println("РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє = " + list);
         int[] array = list.stream().mapToInt(i -> i).toArray();
         mergeSort(array);
-        System.out.println("Отсортированный список = " + Arrays.toString(array));
+        System.out.println("РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ СЃРїРёСЃРѕРє = " + Arrays.toString(array));
         startProgram();
     }
 
-    // Создает и заполняет случайными числами от 0 до 100 лист заданного размера
+    // РЎРѕР·РґР°РµС‚ Рё Р·Р°РїРѕР»РЅСЏРµС‚ СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё РѕС‚ 0 РґРѕ 100 Р»РёСЃС‚ Р·Р°РґР°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР°
     static ArrayList<Integer> getRandomArray(Integer size) {
         ArrayList<Integer> list = new ArrayList();
         for (int i = 0; i < size; i++) {
@@ -77,7 +77,7 @@ public class Program {
         return list;
     }
 
-    // Рекурсивно разбивает массивы на подмассивы пополам
+    // Р РµРєСѓСЂСЃРёРІРЅРѕ СЂР°Р·Р±РёРІР°РµС‚ РјР°СЃСЃРёРІС‹ РЅР° РїРѕРґРјР°СЃСЃРёРІС‹ РїРѕРїРѕР»Р°Рј
     static void mergeSort(int[] list) {
         int size = list.length;
 
@@ -96,7 +96,7 @@ public class Program {
         merge(list, rightList, leftList);
     }
 
-    // Собирает разбитые массивы в основной, сортируя от меньшего к большему
+    // РЎРѕР±РёСЂР°РµС‚ СЂР°Р·Р±РёС‚С‹Рµ РјР°СЃСЃРёРІС‹ РІ РѕСЃРЅРѕРІРЅРѕР№, СЃРѕСЂС‚РёСЂСѓСЏ РѕС‚ РјРµРЅСЊС€РµРіРѕ Рє Р±РѕР»СЊС€РµРјСѓ
     static void merge(int[] list, int[] rightList, int[] leftList) {
         int i = 0, j = 0, k = 0;
 
